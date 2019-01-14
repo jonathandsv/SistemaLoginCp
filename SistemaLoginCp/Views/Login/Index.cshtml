@@ -4,5 +4,42 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="conteiner">
+
+    <div class="content clearfix">
+        @using (Html.BeginForm("Logar", "Login", FormMethod.Post))
+        {
+            <h1>Login</h1>
+            <p>Informe o CPF</p>
+
+            <div class="form-group">
+                @Html.TextBoxFor(x => x.cpf, new { @class = "form-control", @placeholder = "Cpf", @maxlength = 11 })
+                <div class="col-md-9">
+                    @Html.ValidationMessageFor(x => x.cpf)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.TextBoxFor(x => x.senha, new { @class = "form-control", @placeholder = "Senha", @type = "password" })
+                <div class="col-md-9">
+                    @Html.ValidationMessageFor(x => x.senha)
+                </div>
+            </div>
+
+            @Html.MathCaptcha("Tente outro", "O resultado é?", "Campo obrigatório", true)
+            @Html.ValidationMessage("CaptchaInputText")
+
+            <!--Div ainda a ser analizada-->
+            <div class="col-lg-12">
+                <div class="alert alert-danger alert-dismissable" style="display: none; clear: both">
+                    <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <i class="fa fa-ban" style=""><span class="alert-link">@ViewData["Mensagem"]</span></i>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="button btn btn-info btn-large" value="Acessar" />
+            </div>
+        }
+    </div>
+</div>
 

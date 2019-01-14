@@ -10,7 +10,7 @@ namespace SistemaLoginCp.Data
     {
         public Usuario GetUsuario(string cpf)
         {
-            return (cpf);
+            return (null);
         }
     }
 }
